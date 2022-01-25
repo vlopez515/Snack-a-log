@@ -11,7 +11,7 @@
 |  1  |  Show  |   /snacks/:id    |    GET    | **R**ead /**D**elete | Get an individual view (show one snack) (be able to delete a snack from this view) |
 |  2  | Index  |     /snacks      |    GET    |       **R**ead       |                        Get a list (or index) of all snacks                         |
 |  3  |  New   |     /snacks      |    GET    |      **C**reate      |                          Use a form to create a new snack                          |
-|  3  |  Edit  | /snacks/:id/edit |    GET    |      **U**pdate      |                       Use a form to create a update a snack                        |
+|  4  |  Edit  | /snacks/:id/edit |    GET    |      **U**pdate      |                       Use a form to create a update a snack                        |
 
 ## Data Model - Reminder
 
