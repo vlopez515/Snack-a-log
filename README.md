@@ -36,7 +36,7 @@ Everyone should:
 
 - Go back to your markdown file and add another fun fact
 - git add, commit, but this time `git push origin yourname`
-- Go to GitHub and you should now see 3 new branches
+- Go to GitHub and you should now see new branches
 - Create a pull request for each branch into `dev`
 
 As best practice, someone else should merge your changes in, that gives them a chance to review your work and discuss the changes.
