@@ -48,7 +48,11 @@ Once everyone's work is merged into `dev`, everyone on their own machines should
 
 and you should see the changes to `dev` (all your updated markdown files)
 
-One person should now confirm everything is in order with the dev branch, then create a pull request to merge the changes into `main.
+One person should now confirm everything is in order with the dev branch, then create a pull request to merge the changes into `main.\
+
+To bring the changes into the `dev`(or other) branch, make sure you are on the correct branch, then `git pull origin main` - in this case, since `dev` is what we merged into master, there should be no chnages.
+
+ - switch `git checkout yourname` to your branch and try `git pull origin main` - to get the lastest changes from `main` to your branch. 
 
 ## Workflows
 
