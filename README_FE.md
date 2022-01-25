@@ -1,4 +1,4 @@
-[Day 2 - Create-React-App](./README2.md)
+
 
 ## PART 2
 
