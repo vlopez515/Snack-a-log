@@ -10,6 +10,7 @@
 |  2  | Destroy | /snacks/:id |  DELETE   | **D**elete |             Delete a snack              |
 |  3  |  Index  |   /snacks   |    GET    |  **R**ead  |   Get a list (or index) of all snacks   |
 |  4  | Create  |   /snacks   |   POST    | **C**reate |           Create a new snack            |
+|  5  | Update  |   /snacks/:id   |   PUT    | **U**pdate |           Update a new snack            |
 
 ## Data Model
 
