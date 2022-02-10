@@ -8,7 +8,7 @@ In this lab activity, you will practice collaborating on a project. You'll be bu
 
 - Go through [working in groups](./working-in-groups.md) with your partner(s).
 - Choose one person to be the owner, the other person(people) will be collaborators.
-- This person should use this repository as a template and that should create it as a fork that is not tied back to this repository.
+- This person should use this repository as a template (look for the big green button). This will create it as a type of fork that is not tied back to the original repository.
 - Then, go into settings and add your partners as collaborators.
 - The collaborators will get an email asking them to confirm joining the repository.
 - Everyone should now clone the repo onto their machines.
