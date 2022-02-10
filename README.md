@@ -6,53 +6,60 @@ In this lab activity, you will practice collaborating on a project. You'll be bu
 
 ## Getting Started
 
-- Go through [working in groups](./working-in-groups.md) with your partner(s)
-- Choose one person to be the owner, the other person(people) will be collaborators
-- This person should use this repository as a template and that should create it as a fork that is not tied back to this repository
-- Then, go into settings and add your partners as collaborators
-- The collaborators will get an email asking them to confirm joining the repository
-- Everyone should now clone the repo onto their machines
+- Go through [working in groups](./working-in-groups.md) with your partner(s).
+- Choose one person to be the owner, the other person(people) will be collaborators.
+- This person should use this repository as a template and that should create it as a fork that is not tied back to this repository.
+- Then, go into settings and add your partners as collaborators.
+- The collaborators will get an email asking them to confirm joining the repository.
+- Everyone should now clone the repo onto their machines.
 
 ### Practice Collaboration with GitHub
 
-- Everyone should go into the repository and `touch yourname.md`
-- In `yourname.md` put a fun fact about yourself
-- Add, commit and push this to the `main` branch
-- Once everyone is done, `git pull` the changes down
+- Everyone should go into the repository and `touch [yourname].md`
+- In `[yourname].md` put a fun fact about yourself.
+- Add, commit and push this to the `main` branch.
+- Once everyone is done, `git pull` the changes down.
 
 In this case, all of you worked in different files and had a very small task to complete.
 
 Let's create a more realistic workflow for a job.
 
+#### Creating A Development Branch
+
 The `main` branch is the production branch. This is what clients see and this is what is deployed online. It is very important to try to avoid pushing breaking changes to this branch.
 
 What is better practice is to have a branch like `dev` where changes are added and tested before they are merged into `main`. Let's give it a try.
 
-Everyone should:
+- One team member should run `git switch -c dev` - this will create a new branch called `dev` and switch to it. Run `git branch` to confirm—it should show a star next to your new `dev` branch.
+- That same team member should now run `git push origin dev`. This will push the `dev` branch to the remote "origin"... that is, GitHub.
 
-- `git checkout -b dev` - this will create a new branch called `dev`
-- `git branch` to confirm you are now on the `dev` branch
-- `git checkout -b yourname` - to make a new branch with your name. On the job, you would use a branch name that describes what you are working on `bug-fixes`, `new-feature` etc., but for practice, we will just go with your name so you can see your work and how it merges with your collaborators' work.
+Now _everyone_ should:
 
-- Go back to your markdown file and add another fun fact
-- git add, commit, but this time `git push origin yourname`
-- Go to GitHub and you should now see new branches
-- Create a pull request for each branch into `dev`
+- `git switch -c dev` - this will create a new branch called `dev` and switch to it.
+- `git branch` to confirm you are now on the `dev` branch.
+- `git switch -c [yourname]` - to make a new branch with your name. This will create it based on what's currently on the `dev` branch, since that's where you were when you made it.
 
-As best practice, someone else should merge your changes in, that gives them a chance to review your work and discuss the changes.
+On the job, you would use a branch name that describes what you are working on—`bug-fixes`, `new-feature` etc. But for practice, we will just go with your name so you can see how your work merges with your collaborators' work.
 
-Once everyone's work is merged into `dev`, everyone on their own machines should
+- Go back to your markdown file and add another fun fact.
+- git add, commit, but this time `git push origin [yourname]`
+- Go to GitHub and you should now see new branches.
+- Create a pull request for each branch into `dev`. Don't compare it to `main`... we don't touch that until we've got a real release version!
 
-- `git checkout dev`
+As best practice, someone else should merge your changes in. That gives them a chance to review your work and discuss the changes.
+
+Once everyone's work is merged into `dev`, everyone on their own machines should:
+
+- `git switch dev`
 - `git pull origin dev`
 
-and you should see the changes to `dev` (all your updated markdown files)
+and you should see the changes to `dev` (all your updated markdown files).
 
-One person should now confirm everything is in order with the dev branch, then create a pull request to merge the changes into `main.\
+One person should now confirm everything is in order with the dev branch (all markdown files are there and updated). Then, since you've added a couple of working features (or at least, working fun facts), you have a new release—create a pull request to merge `dev`'s' changes into `main`.
 
-To bring the changes into the `dev`(or other) branch, make sure you are on the correct branch, then `git pull origin main` - in this case, since `dev` is what we merged into master, there should be no chnages.
+To bring the changes into the `dev` (or other) branch, make sure you are on the correct branch, then `git pull origin main` - in this case, since `dev` is what we merged into master, there should be no changes.
 
- - switch `git checkout yourname` to your branch and try `git pull origin main` - to get the lastest changes from `main` to your branch. 
+- switch to your branch (`git switch [yourname]`) and try `git pull origin main` - to get the latest changes from `main` to your branch.
 
 ## Workflows
 
