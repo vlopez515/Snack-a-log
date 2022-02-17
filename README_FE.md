@@ -1,5 +1,3 @@
-
-
 ## PART 2
 
 ### Requirements
@@ -89,6 +87,18 @@ There are more tests for the index page. The next section will address the final
 - Use the cypress interface to test/rerun tests/get feedback
 - All the tests under `index page` should pass
 - Move on to the next section, at the very end, you will return to the `Index Page CSS` tests
+
+### Snacks/Index Page
+
+- Each snack should be made up of a 'card' the card contains
+  - a div with a className of `Snack`
+    - a link to the show page for the snack
+    - an image of the snack with the `alt` attribute set to the snack name
+    - an `h4` that has the following things inside of it
+      - a span tag that contains the `<HeartHealth>` component
+      - the snack name
+
+For a reference of how this should look like, please scroll down to some sample image screenshots
 
 ### Snack Details/Show Page
 
