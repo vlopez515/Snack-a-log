@@ -1,88 +1,146 @@
-# Snack-A-Log Pair Programming Lab
+# Full Stack Application Pair Project
+
+## Snack-a-log
+
+Create an app that allows users to log their favorite snacks. Add functionality that allows users to see whether or not their snack is healthy based on a simple algorithm.
+
+For this project there are 40 features or functionality to build. To pass this project a minimum of 28 features must be built.
 
 ## Overview
 
-In this lab activity, you will practice collaborating on a project. You'll be building an app to track snacks and whether or not they are healthy.
+- Using a mono-repo template repository, create a full-stack web application
+- Use express to build a full CRUD back-end application that adheres to RESTful routes
+- Use create-react-app to build a full CRUD front-end application that interacts with the back-end
+- Use unit tests to guide the building process
+- Deploy the applications online, so anyone can see them online
+
+## User Stories, Acceptance Criteria and Code Quality Rubric
+
+### Back-end
+
+1.  Basic root route that returns a string
+1.  Snacks resource
+    1. Get one (with correct id)
+    1. Get one (non-matching id, sends 404)
+    1. Delete (with valid id)
+    1. Delete (handles invalid id)
+    1. Get all snacks
+    1. Create a snack with all fields completed
+    1. Create a snack and set a default image, if no image is provided
+    1. Correctly capitalize snack name - for snack names with 2 or more letters
+    1. Correctly capitalize snack name with multiple words
+    1. Correctly fix capitalization, regardless if input is lowercase or uppercase
+1.  Snack Health Check logic
+    1. Checks if snack has enough fiber
+    1. Checks if snack has enough protein
+    1. Checks if snack has enough fiber and protein
+    1. Checks if snack has enough fiber but too much sugar
+    1. Checks if snack has enough protein but too much sugar
+    1. Checks if snack has enough fiber and protein, but too much sugar
+    1. Checks if snack has not enough protein, nor fiber and has too much sugar
+    1. Checks if snack has invalid or missing information
+
+Total: 21 tests
+
+### Front-end
+
+1. Index page
+   1. Can load index page and has navigation to the New page
+   1. Has a list of snack cards that are coming from the back-end seed data
+   1. Has a link to each snack's show page
+   1. Has a solid heart, if the snack is healthy
+   1. Has a heart outline, if the snack is unhealthy
+   1. Has the CSS that is detailed in the tests
+1. Show page
+   1. Shows header text
+   1. Can navigate to New page
+   1. Snack has correct information displayed
+   1. Contains action/navigation buttons
+1. New page
+   1. Shows the header text
+   1. Has a form with the correct labels and fields
+   1. Can create a snack and then redirects back to the index page
+1. Edit page
+   1. Has a form with the correct labels and fields
+   1. Data is pre-filled into the form
+   1. Can update a snack and then redirects back to the index page
+1. Delete button
+   1. Can delete a snack using the app
+
+Total: 17 tests
+
+Additional points:
+
+Back-end hosted and accessible online: 1 point
+Front-end hosted and accessible online: 1 point
+
+Grand total: 40 points
 
 ## Getting Started
 
-- Go through [working in groups](./working-in-groups.md) with your partner(s).
-- Choose one person to be the owner, the other person(people) will be collaborators.
-- This person should use this repository as a template (look for the big green button). This will create it as a type of fork that is not tied back to the original repository.
-- Then, go into settings and add your partners as collaborators.
-- The collaborators will get an email asking them to confirm joining the repository.
-- Everyone should now clone the repo onto their machines.
+1. Fork and clone this repository.
 
-### Practice Collaboration with GitHub
+### Back-end setup
 
-- Everyone should go into the repository and `touch [yourname].md`
-- In `[yourname].md` put a fun fact about yourself.
-- Add, commit and push this to the `main` branch.
-- Once everyone is done, `git pull` the changes down.
+It is recommended that you open a new terminal tab that will be dedicated to running and developing your back-end
 
-In this case, all of you worked in different files and had a very small task to complete.
+- `cd back-end`
+- `touch .env`
 
-Let's create a more realistic workflow for a job.
+**.env**
 
-#### Creating A Development Branch
+```
+PORT=3333
+PG_HOST=localhost
+PG_PORT=5432
+PG_DATABASE=snack_a_log
+```
 
-The `main` branch is the production branch. This is what clients see and this is what is deployed online. It is very important to try to avoid pushing breaking changes to this branch.
+- `npm install` - install npm packages listed in `package.json`
+- `npm run db:init` - initialize a new database and create tables
+- `npm run db:seed` - seed the table(s) with some data
+- `nodemon` - confirm that this is running on port 3333
+- Visit http://localhost:3333/snacks/ and make sure you see some snack data in the form of an array of objects
+- `npm run test` - to run the back-end tests
 
-What is better practice is to have a branch like `dev` where changes are added and tested before they are merged into `main`. Let's give it a try.
+### Front-end setup
 
-- One team member should run `git switch -c dev` - this will create a new branch called `dev` and switch to it. Run `git branch` to confirm—it should show a star next to your new `dev` branch.
-- That same team member should now run `git push origin dev`. This will push the `dev` branch to the remote "origin"... that is, GitHub.
+It is recommended that you open a new terminal tab that will be dedicated to running and developing your front-end
 
-Now _everyone_ should:
+- `cd front-end`
+- `touch .env`
 
-- `git switch -c dev` - this will create a new branch called `dev` and switch to it.
-- `git branch` to confirm you are now on the `dev` branch.
-- `git switch -c [yourname]` - to make a new branch with your name. This will create it based on what's currently on the `dev` branch, since that's where you were when you made it.
+**.env**
 
-On the job, you would use a branch name that describes what you are working on—`bug-fixes`, `new-feature` etc. But for practice, we will just go with your name so you can see how your work merges with your collaborators' work.
+```
+REACT_APP_API_URL=http://localhost:3333
+```
 
-- Go back to your markdown file and add another fun fact.
-- git add, commit, but this time `git push origin [yourname]`
-- Go to GitHub and you should now see new branches.
-- Create a pull request for each branch into `dev`. Don't compare it to `main`... we don't touch that until we've got a real release version!
+- `npm install` - install npm packages listed in `package.json`
+- `npm start` - make sure your React app can start
 
-As best practice, someone else should merge your changes in. That gives them a chance to review your work and discuss the changes.
+Keep the React app running, open a new tab and run
 
-Once everyone's work is merged into `dev`, everyone on their own machines should:
+- `npm test` - to open Cypress and run front-end tests
 
-- `git switch dev`
-- `git pull origin dev`
+## Screenshots
 
-and you should see the changes to `dev` (all your updated markdown files).
+### Index page
 
-One person should now confirm everything is in order with the dev branch (all markdown files are there and updated). Then, since you've added a couple of working features (or at least, working fun facts), you have a new release—create a pull request to merge `dev`'s' changes into `main`.
+![Index page](./assets/index-page.png)
 
-To bring the changes into the `dev` (or other) branch, make sure you are on the correct branch, then `git pull origin main` - in this case, since `dev` is what we merged into master, there should be no changes.
+### Show page
 
-- switch to your branch (`git switch [yourname]`) and try `git pull origin main` - to get the latest changes from `main` to your branch.
+![Show page](./assets/show-page.png)
 
-## Workflows
+### New page
 
-You will likely make mistakes. You will work on the wrong branch, you will push to the wrong branch, you will create merge conflicts. All of this is really important! Now is the time to make these mistakes and learn how to deal with them, rather than on the job.
+![New page](./assets/new-page.png)
 
-For now, don't worry about best practices in fixing mistakes, just communicate with your partner(s) about how to fix it amongst yourselves and continue onwards. As you practice, you will get better at finding solutions and using them.
+### Edit page
 
-At first, group work goes very slowly as you all are learning each other's work styles and learning how you communicate best. There is a lot to work out as far as who works on what. Don't get discouraged if it is a slow start. It will get better.
+![Edit Page](./assets/edit-page.png)
 
-You should also deploy a very basic version of your app ASAP. The less code you have, the easier it will be to debug and get deployed. The longer you hold off, the harder it will be to find what is wrong.
+## Resources
 
-## Getting Ready for Interviews
-
-Often, interviewers are less interested in the technical aspects of group projects and far more interested in:
-
-- How do you work in a group? (Pair program, work on own, but have check-ins?)
-- How do you resolve disagreements for a project?
-- How do you resolve if people in your group have very different work styles?
-- How do you decide who works on what?
-- How do you organize your project (did you use Trello or another tool?)
-- How do you resolve merge conflicts?
-
-## Specific README's
-
-- [Back-end README](./README_BE.md)
-- [Front-end README](./README_FE.md)
+This project uses [this template](https://github.com/joinpursuit/pern-final-project-template) - you can follow the readme to set up deployment.
