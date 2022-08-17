@@ -1,5 +1,4 @@
 // DEPENDENCIES
-
 const express = require("express");
 
 // CONFIGURATION
